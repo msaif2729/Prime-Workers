@@ -17,15 +17,15 @@ export default function Contact() {
                         <div className='flex flex-col justify-center  '>
                             <div className='flex  items-center  mt-8 '>
                                 <i className="text-[var(--color1)] text-xl lg:text-2xl text-center mr-[10%] fa-solid fa-location-dot"></i>
-                                <p className="text-[15px] lg:text-lg font-kanit text-start text-[var(--color3)]">Shop no. 360, Jivaji lokhandwala building, Bapty Road, Grant Road (E), Mumbai - 400008.</p>
+                                <p className="text-[15px] lg:text-lg font-kanit text-start text-[var(--color7)]">Shop no. 360, Jivaji lokhandwala building, Bapty Road, Grant Road (E), Mumbai - 400008.</p>
                             </div>
                             <div className='flex  items-center mt-8 '>
                                 <i className="text-[var(--color1)] text-xl lg:text-2xl text-center mr-[9%] fa-solid fa-phone"></i>
-                                <p className="text-[15px] lg:text-lg font-kanit text-start  text-[var(--color3)]">9820989299</p>
+                                <p className="text-[15px] lg:text-lg font-kanit text-start  text-[var(--color7)]">9820989299</p>
                             </div>
                             <div className='flex  items-center mt-8 '>
                                 <i className="text-[var(--color1)] text-xl lg:text-2xl text-center mr-[9%] fa-solid fa-envelope"></i>
-                                <p className="text-[15px] lg:text-lg font-kanit text-start text-[var(--color3)]">primeworkers21@gmail.com</p>
+                                <p className="text-[15px] lg:text-lg font-kanit text-start text-[var(--color7)]">primeworkers21@gmail.com</p>
                             </div>
                         </div>
                         <iframe className='w-full h-[30vh] mt-10' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d546.8714267134279!2d72.82182145151174!3d18.96399008728626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce13585eb647%3A0x145859f2a6e49c2!2s360%2C%20Bapty%20Rd%2C%20Navjeevan%20Society%2C%20Grant%20Road%20East%2C%20Bharat%20Nagar%2C%20Kamathipura%2C%20Mumbai%2C%20Maharashtra%20400008!5e1!3m2!1sen!2sin!4v1733251623022!5m2!1sen!2sin"  allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
@@ -48,7 +48,7 @@ export default function Contact() {
                                     <input
                                         type="text"
                                         id="name"
-                                        className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 lg:border-b-2 border-[var(--color1)] text-white focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
+                                        className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 lg:border-b-2 border-[var(--color1)] text-[var(--color7)] focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
                                         placeholder="Your Name"
                                     />
                                     </div>
@@ -59,7 +59,7 @@ export default function Contact() {
                                     <input
                                         type="tel"
                                         id="phone"
-                                        className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-white focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
+                                        className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-[var(--color7)] focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
                                         placeholder="Your Phone"
                                     />
                                 </div>
@@ -73,7 +73,7 @@ export default function Contact() {
                                 <input
                                 type="email"
                                 id="email"
-                                className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-white focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
+                                className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-[var(--color7)] focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
                                 placeholder="Your Email"
                                 />
                             </div>
@@ -86,7 +86,7 @@ export default function Contact() {
                                 <input
                                 type="text"
                                 id="subject"
-                                className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-white focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
+                                className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-[var(--color7)] focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
                                 placeholder="Subject"
                                 />
                             </div>
@@ -99,7 +99,7 @@ export default function Contact() {
                                 <textarea
                                 id="message"
                                 rows="4"
-                                className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-white focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit    "
+                                className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-[var(--color7)] focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit    "
                                 placeholder="Your Message"
                                 ></textarea>
                             </div>
@@ -107,10 +107,10 @@ export default function Contact() {
                             {/* Submit Button */}
                             <div className="flex justify-start">
                                 <button
-                                type="submit"
-                                className="hover:-skew-x-12 transition-all duration-300 ease-in-out  hover:bg-transparent border-2 border-transparent rounded-sm font-kanit text-white pt-1 pb-2 p-5  hover:border-[var(--color1)] bg-[var(--color1)]"
+                                className="hover:-skew-x-12 hover:text-[var(--color6)] transition-all duration-300 ease-in-out  hover:bg-transparent border-2 border-transparent rounded-sm font-kanit text-white pt-1 pb-2 p-5  hover:border-[var(--color1)] bg-[var(--color1)]"
                                 >
-                                Send Message <span>➤</span>
+                                Send Message 
+                                {/*<span>➤</span> */}
                                 </button>
                             </div>
                         </form>

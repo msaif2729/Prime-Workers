@@ -20,11 +20,13 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 transition-all duration-300">
       <div
-        className={`flex justify-between items-center px-5 lg:px-10 py-4 ${
+        className={`flex justify-between transition-all duration-300 items-center px-5 lg:px-10 fixed w-[100%] py-4 ${
           scroll
             ? 'bg-darkTheme-bg bg-opacity-90 shadow-md'
             : 'bg-transparent'
-        }`}
+        }
+       
+        `}
       >
         <div className="text-[var(--color1)] font-kanit text-3xl font-semibold">
           LOGO
@@ -49,35 +51,53 @@ export default function Navbar() {
           aria-expanded={menuOpen}
         >
           <div
-            className={`w-6 h-[2px] bg-white transition-transform ${
-              menuOpen ? 'translate-y-[0.1rem] -rotate-45' : ''
-            }`}
+            className={`w-6 h-[2px] bg-white transition-transform `}
           ></div>
           <div
-            className={`w-6 h-[2px] bg-white transition-transform ${
-              menuOpen ? '-translate-y-[0.315rem] rotate-45' : ''
-            }`}
+            className={`w-6 h-[2px] bg-white transition-transform `}
           ></div>
-          {!menuOpen && (
-            <div className="w-6 h-[2px] bg-white"></div>
-          )}
+          <div className="w-6 h-[2px] bg-white"></div>
+          
         </div>
       </div>
 
       <div
-        className={`lg:hidden bg-darkTheme-bg bg-opacity-90 text-white font-semibold text-xl transition-all duration-300 ${
-          menuOpen ? 'max-h-[500px] py-5' : 'max-h-0 overflow-hidden'
+        className={`lg:hidden pt-4 pb-2 bg-darkTheme-bg bg-opacity text-white font-semibold text-xl transition-all duration-700 ${
+          menuOpen ? 'translate-y-0 ' : '-translate-y-80  overflow-hidden'
         }`}
       >
-        <ul className="space-y-5 px-5">
-          {['Home', 'Services', 'About', 'Our Work', 'Contact'].map(
+        <div className='flex justify-between mb-4'>
+          <div className="text-[var(--color1)] mx-5 transition-all duration-700  font-kanit text-3xl font-semibold">
+            LOGO
+          </div>
+          <div
+          className="flex flex-col mx-5 justify-center  space-y-1 cursor-pointer lg:hidden"
+          onClick={toggleMenu}
+          aria-expanded={menuOpen}
+          >
+            <div
+              className={`w-6 h-[2px] bg-white translate-y-[0.1rem] -rotate-45 transition-transform ${
+                menuOpen ? 'translate-y-[0.1rem] -rotate-45' : ''
+              }`}
+            ></div>
+            <div
+              className={`w-6 h-[2px] -translate-y-[0.315rem] rotate-45 bg-white transition-transform ${
+                menuOpen ? '-translate-y-[0.315rem] rotate-45' : ''
+              }`}
+            ></div>
+            
+          </div>
+
+        </div>
+        <ul className=" px-5">
+          {['Home', 'Services',  'About', 'Our Work', 'Contact'].map(
             (item, index) => (
               <a
                 key={index}
                 href={`#${item.toLowerCase().replace(/\s+/g, '')}`}
                 onClick={() => setMenuOpen(false)}
               >
-                <li className="cursor-pointer">{item}</li>
+                <li className="cursor-pointer my-2">{item}</li>
               </a>
             )
           )}

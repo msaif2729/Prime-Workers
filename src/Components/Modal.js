@@ -7,7 +7,7 @@ export default function Modal({ isOpen, onClose, content }) {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 overflow-hidden  ">
       <div className="w-[90%]  bg-gray-100 h-[90%] rounded-lg shadow-lg ">
         {/* Header */}
-        <div className="fixed w-[90%] rounded-t-lg px-10 py-3 bg-gray-100 ">
+        <div className="fixed w-[90%] rounded-t-lg px-5 lg:px-10 py-3 bg-gray-100 ">
             <div className='flex justify-between items-center text-center '>
                 <h2 className="text-2xl font-kanit text-[var(--color1)] font-bold">
                     {content.title}

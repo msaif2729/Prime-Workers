@@ -7,9 +7,12 @@ import ac1 from '../Assets/images/ac1.jpg';
 import iron1 from '../Assets/images/iron1.jpg';
 import steel1 from '../Assets/images/steel1.jpg';
 import interior1 from '../Assets/images/int1.jpg';
-import quality from '../Assets/images/1.png';
-import certify from '../Assets/images/2.png';
-import afford from '../Assets/images/3.png';
+// import quality from '../Assets/images/1.png';
+// import certify from '../Assets/images/2.png';
+// import afford from '../Assets/images/3.png';
+import quality from '../Assets/images/icons/1.png';
+import certify from '../Assets/images/icons/2.png';
+import afford from '../Assets/images/icons/3.png';
 import pic from '../Assets/images/pic1.png';
 import ScrollScale from '../Animation/ScrollScale';
 import useBreakPoint from '../Hooks/useBreakPoint';
@@ -76,12 +79,12 @@ setImages(newImages);
   return (
       <div id='home'>
         <div className='h-[100vh] bg-cover transition-all duration-500 ease-in-out ' style={{backgroundImage: `url(${images[currectIndex]})`}}>
-          <div className="h-[100vh] lg:bg-gradient-to-r bg-gradient-to-b from-black/85 lg:from-black/100 via-black/60 to-gray-900/50 flex justify-center items-center lg:px-20 ">
+          <div className="h-[100vh] lg:bg-gradient-to-r bg-gradient-to-b from-black/55 lg:from-black/100 via-black/40 to-gray-900/50 flex justify-center items-center lg:px-20 ">
             
             <div className='text-center lg:text-left px-5 lg:px-20'>
               <h1 className='font-kanit text-white text-2xl lg:text-3xl '>Welcome To <span className=' text-[var(--color1)] font-semibold tracking-wide '>Prime Workers</span></h1>
               <h1 className="font-kanit tracking-wide mt-6 text-4xl lg:text-8xl  text-[var(--color2)] font-extrabold ">WE'RE <br /><span className={`transition-opacity duration-500  ${isFading ? 'opacity-0' : 'opacity-100'}`} key={who[whoIndex]}>{who[whoIndex]}</span></h1>
-              <p className=' text-[var(--color3)] font-kanit text-lg lg:text-xl mt-10 lg:w-[45%] '>
+              <p className=' text-white font-kanit text-lg lg:text-xl mt-10 lg:w-[45%] '>
                 We specialize in AC servicing, iron works, interior designing and steel works, delivering quality and reliability for all your fabrication needs.
               </p>
               <a href="#ourwork">
@@ -105,16 +108,16 @@ setImages(newImages);
                   <img src={quality} alt="" className='w-16 '/>
                   <h1 className='font-oswald font-extrabold text-[var(--text)] text-3xl'>Quality <br/> Workmanship</h1>
                 </div>
-                <p className='text-[var(--color3)] font-kanit font-light mt-4 text-justify text-[15px] px-4 '>
+                <p className='text-[var(--color7)] font-kanit font-extralight mt-4 text-justify text-[15px] px-4 '>
                   Quality workmanship reflects skill, detail, and commitment, ensuring every task meets the highest standards of excellence.</p>
               </div>
 
               <div className=' bg-[var(--card)] flex flex-col justify-center  rounded-md m-5 px-3 py-4  lg:w-[30%] h-[30vh] lg:h-[38vh] shadow-lg'>
                 <div className='flex pr-4 pl-4 gap-2  '>
                   <img src={certify} alt="" className='w-16 '/>
-                  <h1 className='font-oswald font-extrabold text-[var(--text)] text-3xl '>Certifications <br/>& Compliance</h1>
+                  <h1 className='font-oswald font-extrabold text-[var(--text)] text-3xl'>Certifications <br/>& Compliance</h1>
                 </div>
-                <p className='text-[var(--color3)] font-kanit font-light mt-4 text-justify text-[15px] px-4 '>
+                <p className='text-[var(--color7)] font-kanit font-extralight mt-4 text-justify text-[15px] px-4 '>
                   Certificate & compliance validate that an organisation meets required standards, promoting trust, accountability & consistency in its operations.
                   </p>
               </div>
@@ -124,7 +127,7 @@ setImages(newImages);
                   <img src={afford} alt="" className='w-16'/>
                   <h1 className='font-oswald font-extrabold text-[var(--text)] text-3xl'>Affordable <br/> Pricing</h1>
                 </div>
-                <p className='text-[var(--color3)] font-kanit font-light mt-4 text-justify text-[15px] px-4 '>
+                <p className='text-[var(--color7)] font-kanit font-extralight mt-4 text-justify text-[15px] px-4 '>
                   Affordable pricing is the key to build trust & long term relationship with the customers while maintaining sustainable business practices.
                 </p>
               </div>
@@ -136,7 +139,7 @@ setImages(newImages);
             <div className="w-[100%] p-5 h-[45vh] lg:h-[48vh] bg-gradient-to-r from-black/40 via-black/30 to-gray-900/15">
               <h1 className=' font-khand text-8xl  font-extrabold text-white  '>{expyear-2007}+</h1>
               <h1 className='font-khand text-3xl lg:text-4xl font-extrabold text-white'>Years of Experience</h1>
-              <p className='text-white font-kanit font-light mt-4 text-justifytext-base  '>
+              <p className='text-white font-kanit  mt-4 text-justifytext-base  '>
                 With over 17+ years of experience we bring a deep understanding of the industry, refined skills & a proven track record of delivering excellence.
               </p>
               <a href="#contact">

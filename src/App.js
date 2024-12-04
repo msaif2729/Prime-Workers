@@ -20,7 +20,6 @@ function App() {
         <Work/>
         <Contact/>
         <Footer/>
-        <div className="h-[20vh]"></div>
       </div>  
   </div>
   );

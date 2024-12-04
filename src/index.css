@@ -11,6 +11,9 @@
     --color2: theme('colors.lightTheme.color2');
     --color3: theme('colors.lightTheme.color3');
     --color4: theme('colors.lightTheme.color4');
+    --color5: theme('colors.lightTheme.color5');
+    --color6: theme('colors.lightTheme.color6');
+    --color7: theme('colors.lightTheme.color7');
     --text: theme('colors.lightTheme.text');
     --primary: theme('colors.lightTheme.primary');
   }
@@ -21,6 +24,9 @@
       --color2: theme('colors.darkTheme.color2');
       --color3: theme('colors.darkTheme.color3');
       --color4: theme('colors.darkTheme.color4');
+      --color5: theme('colors.darkTheme.color5');
+      --color6: theme('colors.darkTheme.color6');
+      --color7: theme('colors.darkTheme.color7');
       --text: theme('colors.darkTheme.text');
       --primary: theme('colors.darkTheme.primary');
     }
