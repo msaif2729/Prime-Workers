@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  
+  .theme-light {
+    --bg: theme('colors.lightTheme.bg');
+    --card: theme('colors.lightTheme.card');
+    --color1: theme('colors.lightTheme.color1');
+    --color2: theme('colors.lightTheme.color2');
+    --color3: theme('colors.lightTheme.color3');
+    --color4: theme('colors.lightTheme.color4');
+    --text: theme('colors.lightTheme.text');
+    --primary: theme('colors.lightTheme.primary');
+  }
+    .theme-dark {
+      --bg: theme('colors.darkTheme.bg');
+      --card: theme('colors.darkTheme.card');
+      --color1: theme('colors.darkTheme.color1');
+      --color2: theme('colors.darkTheme.color2');
+      --color3: theme('colors.darkTheme.color3');
+      --color4: theme('colors.darkTheme.color4');
+      --text: theme('colors.darkTheme.text');
+      --primary: theme('colors.darkTheme.primary');
+    }
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
