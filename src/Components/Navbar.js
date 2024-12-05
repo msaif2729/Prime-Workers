@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logo from '../Assets/images/logo.png'
 
 export default function Navbar() {
   const [scroll, setScroll] = useState(false);
@@ -20,7 +21,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 transition-all duration-300">
       <div
-        className={`flex justify-between transition-all duration-300 items-center px-5 lg:px-10 fixed w-[100%] py-4 ${
+        className={`flex justify-between transition-all duration-300 items-center px-5 lg:px-10 fixed w-[100%] py-1 ${
           scroll
             ? 'bg-darkTheme-bg bg-opacity-90 shadow-md'
             : 'bg-transparent'
@@ -28,8 +29,10 @@ export default function Navbar() {
        
         `}
       >
-        <div className="text-[var(--color1)] font-kanit text-3xl font-semibold">
-          LOGO
+        <div className="">
+          <a href="">
+            <img src={logo} alt="" className='w-28  '/>
+          </a>
         </div>
 
         <ul className="hidden lg:flex space-x-10 text-white font-kanit text-xl">
@@ -67,8 +70,10 @@ export default function Navbar() {
         }`}
       >
         <div className='flex justify-between mb-4'>
-          <div className="text-[var(--color1)] mx-5 transition-all duration-700  font-kanit text-3xl font-semibold">
-            LOGO
+          <div className="text-[var(--color1)] mx-3 transition-all duration-700  font-kanit text-3xl font-semibold">
+            <a href="">
+              <img src={logo} alt="" className='w-28 '/>
+            </a>
           </div>
           <div
           className="flex flex-col mx-5 justify-center  space-y-1 cursor-pointer lg:hidden"

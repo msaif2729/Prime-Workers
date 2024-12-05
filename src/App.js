@@ -12,7 +12,7 @@ import Footer from './Components/Footer';
 function App() {
   return (
     <div className="App scroll-smooth">
-      <div className="theme-dark bg-[var(--bg)] overflow-hidden scroll-smooth ">
+      <div className="theme-light bg-[var(--bg)] overflow-hidden scroll-smooth ">
         <Navbar />
         <Home />
         <Service/>

@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import Slider from 'react-slick';
 import ServiceItem from './ServiceItem';
-import ac from '../Assets/images/acservice.png';
-import iron from '../Assets/images/ironservice.png';
-import steel from '../Assets/images/steelservice.png';
-import int from '../Assets/images/intservice.png';
+// import ac from '../Assets/images/acservice.png';
+// import iron from '../Assets/images/ironservice.png';
+// import steel from '../Assets/images/steelservice.png';
+// import int from '../Assets/images/intservice.png';
 
-// import ac from '../Assets/images/icons/acservice.png';
-// import iron from '../Assets/images/icons/ironservice.png';
-// import steel from '../Assets/images/icons/steelservice.png';
-// import int from '../Assets/images/icons/intservice.png';
+import ac from '../Assets/images/icons/acservice.png';
+import iron from '../Assets/images/icons/ironservice.png';
+import steel from '../Assets/images/icons/steelservice.png';
+import int from '../Assets/images/icons/intservice.png';
 
 export default function ItemSlider() {
 
