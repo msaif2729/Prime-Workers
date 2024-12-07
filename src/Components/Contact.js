@@ -2,8 +2,19 @@ import React from 'react'
 import ScrollTransLeft from '../Animation/ScrollTransLeft'
 import ScrollTransRight from '../Animation/ScrollTransRight'
 import CustomDropdown from './CustomDropdown'
+import { toast } from 'react-toastify'
 
 export default function Contact() {
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        toast.success("Message Sent Successfull !!!",{
+            style: { backgroundColor: "#02ACEF", color: "#ffffff" ,fontFamily:'Kanit' , fontSize:'17px' , alignSelf:'center'  },
+            icon: false
+
+          });
+    } 
+
   return (
     <div id='contact'>
         <div className=' lg:px-10 lg:pt-10 lg:pb-5 px-5 pt-8 pb-4 flex lg:flex-row flex-col justify-evenly items-center '>
@@ -67,7 +78,7 @@ export default function Contact() {
                 <ScrollTransRight>
                     <div className="bg-[var(--card)] text-[var(--text)] w-full  px-5 lg:px-8 py-8 rounded-lg shadow-lg">
                         <h2 className="text-[var(--color2)] font-oswald font-semibold mb-10 text-2xl lg:text-3xl">Send us a message</h2>
-                        <form className="space-y-5">
+                        <form className="space-y-5" onSubmit={handleSubmit}>
                             {/* Name and Phone */}
                             <div className="flex flex-col md:flex-row gap-4">
                                 <div className="flex-1">
@@ -133,7 +144,7 @@ export default function Contact() {
                             {/* Submit Button */}
                             <div className="flex justify-start">
                                 <button
-                                type='button'
+                                type='submit'
                                 className="hover:-skew-x-12 hover:text-[var(--color6)] transition-all duration-300 ease-in-out  hover:bg-transparent border-2 border-transparent rounded-sm font-kanit text-white pt-1 pb-2 p-5  hover:border-[var(--color1)] bg-[var(--color1)]"
                                 >
                                 Send Message
