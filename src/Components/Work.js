@@ -13,17 +13,17 @@ import useBreakPoint from '../Hooks/useBreakPoint';
 export default function Work() {
 
 
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState([ac, steel,int,iron]);
   const [services, setServices] = useState([]);
   const width = useBreakPoint();
 
   useEffect(()=>{
 
-     const newImages =
-     width > 1024
-       ? [ac, steel,int,iron]
-       : [ac1, steel1, interior1,iron1];
-   setImages(newImages);
+  //    const newImages =
+  //    width > 1024
+  //      ? [ac, steel,int,iron]
+  //      : [ac1, steel1, interior1,iron1];
+  //  setImages(newImages);
 
    setServices([
      {
@@ -31,31 +31,31 @@ export default function Work() {
        tagline: 'Our Service is a Breath of Fresh Air.',
        description:
          'Breathe easy and stay cool with our AC services – ensuring optimal comfort and efficiency for your home or business, no matter the season.',
-       icon: newImages[0],
+       icon: images[0],
      },
      {
        title: 'Iron Work',
        tagline: 'Strength forged in every design',
        description:
          'Forging strength and durability, shaping iron with precision and expertise. Our iron works deliver timeless solutions that stand strong through the years, creating sturdy, enduring solutions that stand the test of time.',
-       icon: newImages[1],
+       icon: images[1],
      },
      {
        title: 'Interior Design',
        tagline: 'Designing spaces, crafting dreams.',
        description:
          'Interior design is not just about creating a space that looks beautiful; it’s about creating a space that feels like you. Our home should tell the story of who you are, and be a collection of what you love.',
-       icon: newImages[2],
+       icon: images[2],
      },
      {
        title: 'Steel Works',
        tagline: 'Turning ideas into solid, lasting structures.',
        description:
          'Crafting excellence in steel – where innovation meets strength to build lasting solutions for every project. Our steel works transform ideas into solid, reliable structures that last.',
-       icon: newImages[3],
+       icon: images[3],
      },
    ]);
- }, [width]);
+ }, []);
 
   return (
     <div id='ourwork'>    

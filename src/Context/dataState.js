@@ -43,41 +43,41 @@ const DataState = (props)=>{
         }
     }
 
-    const getData = async (dataitem)=>{
+    // const getData = async (dataitem)=>{
 
-        try {
+    //     try {
             
-            const {title} = dataitem;
-            console.log(dataitem+"\ntitle:"+title)
+    //         const {title} = dataitem;
+    //         console.log(dataitem+"\ntitle:"+title)
 
-            if(!title)
-            {
-                throw new Error("All fields are required.");   
-            }
+    //         if(!title)
+    //         {
+    //             throw new Error("All fields are required.");   
+    //         }
 
-            const response = await fetch(`${host}/api/data/getData/${title}`,{
-                method:'GET',
-                headers:{
-                    'Content-Type':'application/json'
-                }
-            });
+    //         const response = await fetch(`${host}/api/data/getData/${title}`,{
+    //             method:'GET',
+    //             headers:{
+    //                 'Content-Type':'application/json'
+    //             }
+    //         });
 
-            if(!response)
-            {
-                const error = await response.text();
-                throw new Error(`HTTP ERROR! status:${response.status} ,message:${error}`)
-            }
+    //         if(!response)
+    //         {
+    //             const error = await response.text();
+    //             throw new Error(`HTTP ERROR! status:${response.status} ,message:${error}`)
+    //         }
 
-            const data = await response.json();
+    //         const data = await response.json();
         
-            return data; 
+    //         return data; 
 
 
-        } catch (error) {
-            console.log("Failed to Create Category",error);
-        }
+    //     } catch (error) {
+    //         console.log("Failed to Create Category",error);
+    //     }
 
-    }
+    // }
 
     const updateData = async (dataitems)=>{
         
@@ -233,7 +233,7 @@ const DataState = (props)=>{
     }
 
     return(
-        <DataContext.Provider value={{data,createData,getData,getAllData,updateData,deleteData,deleteImage,insertImage}}>
+        <DataContext.Provider value={{data,createData,getAllData,updateData,deleteData,deleteImage,insertImage}}>
             {props.children}
         </DataContext.Provider>
     );

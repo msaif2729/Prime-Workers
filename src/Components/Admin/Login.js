@@ -14,7 +14,7 @@ export default function Login() {
     useEffect(() => {
       const isLoggedIn = localStorage.getItem('islogin') === 'true';
       if (isLoggedIn) {
-        navigate('/prime-workers-admin/admin-panel/addservice');
+        navigate('/prime-workers-admin/admin-panel/admin');
       }
     }, [navigate]);
   

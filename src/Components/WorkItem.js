@@ -16,6 +16,9 @@ export default function WorkItem(props) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({});
+  const [istouched,setTouched] = useState(false); 
+
+  
 
   const handleClick = () => {
     setModalContent({
@@ -44,7 +47,7 @@ export default function WorkItem(props) {
             {/* <button className='absolute left-[40%] bottom-10 lg:hidden   '><i className=" text-2xl z-50 text-white bg-black p-3 rounded-3xl opacity-50  animate-bounce   fa-solid fa-angle-up"></i></button> */}
             
           {/* </div> */}
-          <div className="flex flex-col justify-end items-center lg:items-start hover:opacity-100 px-10 py-5 group/item opacity-0 transition-all duration-300 ease-in h-full w-full bg-gradient-to-t from-black/100 via-black/60 to-black/30">
+          <div className={`${istouched? "opacity-100":"opacity-0"} flex flex-col justify-end items-center lg:items-start hover:opacity-100 focus:bg-black  px-10 py-5 group/item opacity-0 transition-all duration-300 ease-in h-full w-full bg-gradient-to-t from-black/100 via-black/60 to-black/30`} onTouchStart={()=>setTouched(true)} onTouchEnd={()=>{setTouched(false)}} onTouchCancel={()=>setTouched(false)}>
             <h1 className="text-2xl lg:text-3xl text-[var(--color4)] font-oswald font-semibold">{title}</h1>
             <h2 className="lg:text-2xl text-xl text-center lg:text-start mt-4 font-oswald">{tagline}</h2>
             <p className="text-[15px] text-center lg:text-start mt-3 text-[var(--color3)]">{description}</p>
