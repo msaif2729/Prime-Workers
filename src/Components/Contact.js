@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ScrollTransLeft from '../Animation/ScrollTransLeft'
 import ScrollTransRight from '../Animation/ScrollTransRight'
 import CustomDropdown from './CustomDropdown'
 import { toast } from 'react-toastify'
 
 export default function Contact() {
+
+    
+    const [selectedOption,setSelectedOption] = useState(''); 
 
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -14,6 +17,14 @@ export default function Contact() {
 
           });
     } 
+
+     const handleSelect = (option)=>{
+          setSelectedOption(option)
+      }
+    
+      useEffect(() => {
+        // console.log(selectedOption); 
+      }, [selectedOption]);
 
   return (
     <div id='contact'>
@@ -123,8 +134,8 @@ export default function Contact() {
                                 <label htmlFor="subject" className="block mb-2 text-sm font-oswald tracking-widest font-medium">
                                 Subject
                                 </label>
-                                <div className="">
-                                    <CustomDropdown />
+                                <div className="relative ">
+                                    <CustomDropdown onSelectOption={handleSelect}/>
                                 </div>
                             </div>
 

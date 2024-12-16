@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import dataContext from '../Context/dataContext';
 
 const CustomDropdown = ({onSelectOption}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const context = useContext(dataContext);
+  const [options,setOptions] = useState([]);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -10,11 +13,21 @@ const CustomDropdown = ({onSelectOption}) => {
 
   const handleSelect = (option) => {
     setSelectedOption(option);
+    // console.log(option)
     setIsOpen(false);
     onSelectOption(option)
   };
 
-  const options = ["Option 1", "Option 2", "Option 3", "Option 4"];
+  // const options = ["Option 1", "Option 2", "Option 3", "Option 4"];
+
+  useEffect(()=>{
+    const fetchTitle = async()=>{
+      const titles = await context.getAllTitle();
+      // console.log(titles[0].title)
+      setOptions(titles);
+    }
+    fetchTitle();
+  },[])
 
   return (
     <div className="text-left w-full ">
@@ -41,15 +54,15 @@ const CustomDropdown = ({onSelectOption}) => {
       </button>
 
       {isOpen && (
-        <div className="absolute mt-2 w-[88%] lg:w-[90%] font-kanit rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+        <div className="absolute mt-2 w-full  font-kanit rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
           <div className="py-1 ">
             {options.map((option, index) => (
               <button
                 key={index}
-                onClick={() => handleSelect(option)}
+                onClick={() => handleSelect(option.title)}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
               >
-                {option}
+                {option.title}
               </button>
             ))}
           </div>

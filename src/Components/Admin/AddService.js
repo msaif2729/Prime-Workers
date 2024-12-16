@@ -1,9 +1,10 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify';
 import dataContext from '../../Context/dataContext';
 import uploadMultipleImages from '../../Firebase/Firebase';
 import ServiceItem from '../ServiceItem';
 import Preview2 from './Preview2';
+import CustomDropdown from '../CustomDropdown';
 
 export default function AddService() {
 
@@ -12,11 +13,36 @@ export default function AddService() {
   });
 
   const context = useContext(dataContext);
+  const [selectedOption,setSelectedOption] = useState(''); 
   const [selectedImage,setSelectedImage] = useState('');
+  const [isSelectedRadio,setSelectedRadio] = useState('add');
   const [changePreview,setChangePre] = useState(true);
   const [error,setError] = useState('');
   const fileInput1 = useRef(null);
   const fileInput2 = useRef(null);
+  
+  const handleSelect = (option)=>{
+      setSelectedOption(option)
+  }
+
+  useEffect(() => {
+    if (isSelectedRadio === 'update' && selectedOption) {
+      const fetchData = async () => {
+        const data = await context.getData(selectedOption);
+        setService(data.getData);
+        setSelectedImage({ coverImage: data.getData.coverImage, icon: data.getData.icon });
+      };
+      fetchData();
+    } else {
+      setService({ title: "", tagline: "", description: "", coverImage: "", icon: "" });
+    }
+  }, [selectedOption, isSelectedRadio]);
+  
+
+  const handleSelectedRadio = (event)=>{
+      setSelectedRadio(event.target.value);
+      // alert(isSelectedRadio)
+  }
 
   const handleChange = (e)=>{
     const inputText = e.target.value;
@@ -34,8 +60,6 @@ export default function AddService() {
     if (service.title && service.tagline && service.description && service.coverImage && service.icon) {
       try {
         
-        // const exist = await context.getData({title:service.title})
-        // console.log(exist)
         toast.info("Uploading images...");
         const uploadedImages = await uploadMultipleImages([service.coverImage, service.icon]);
 
@@ -84,23 +108,45 @@ export default function AddService() {
   return (
     <div>
       <div className=' p-5 lg:p-10 bg-[var(--card)]'>
-        <h1 className=' font-kanit text-2xl lg:text-3xl  font-semibold text-[var(--color1)]'>Add Service</h1>
+        <div className='flex flex-col lg:flex-row justify-center items-center lg:justify-between  gap-3 '>
+            <h1 className=' font-kanit text-2xl lg:text-3xl  font-semibold text-[var(--color1)]'>Add or Update Service</h1>
+            <div className='lg:w-[50%] h-5 my-2'>
+                <form action="" >
+                  <fieldset>
+                    <label htmlFor="add" className='font-kanit  '><input checked={isSelectedRadio === "add"} type="radio" value='add' id='add' name='add-update' onChange={handleSelectedRadio}/> Want To Add</label>
+                    <label htmlFor="update" className='font-kanit mx-5'><input checked={isSelectedRadio === "update"} type="radio" id='update' value='update' name='add-update' onChange={handleSelectedRadio}/> Want To Update</label>
+                  </fieldset>
+                </form>
+            </div>
+        </div>
+
         <div className='flex  flex-col lg:flex-row py-5'>
           <form className="space-y-5 lg:w-[50%]" onSubmit={handleSubmit}>
 
              <div className=''>
-                  <label htmlFor="title" className="block mb-3 text-sm font-oswald tracking-widest font-medium">
-                  Title
-                  </label>
-                  <input
-                  type="text"
-                  id="title"
-                  name='title'
-                  value={service.title}
-                  onChange={handleChange}
-                  className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-[var(--color7)] focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
-                  placeholder="Service Title"
-                  />
+
+                <label htmlFor="title" className="block  text-sm font-oswald tracking-widest font-medium">
+                Title
+                </label>
+                {
+                  (isSelectedRadio==='add')?(
+                    <div>
+                      <input
+                      type="text"
+                      id="title"
+                      name='title'
+                      value={service.title}
+                      onChange={handleChange}
+                      className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-[var(--color7)] focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
+                      placeholder="Service Title"
+                      />
+                    </div>
+                  ):(
+                    <div className='lg:w-full relative '>
+                      <CustomDropdown onSelectOption={handleSelect}/>
+                    </div>
+                  )
+                }
               </div>
 
               <div className=''>
@@ -183,18 +229,18 @@ export default function AddService() {
           
           {/* Preview */}
     
-          <div className='lg:w-[50%] relative  p-5 flex flex-col justify-center items-center ' >
+          <div className='lg:w-[50%] mt-5 lg:mt-0 relative  p-5 flex flex-col justify-center items-center ' >
 
             {service.title?(
-            <div className=' absolute top-0 left-10 '>
+            <div className=' absolute top-0 left-10 my-10 lg:my-0'>
                 <button className={`${changePreview?"-skew-x-12 text-[var(--color6)] bg-transparent border-2 border-[var(--color1)] ":"border-transparent"} hover:-skew-x-12 hover:text-[var(--color6)] hover:border-[var(--color1)] hover:bg-transparent transition-all duration-300 ease-in-out border-2  rounded-sm font-kanit text-white pt-1 pb-2 p-5 bg-[var(--color1)]  `} onClick={()=>setChangePre(true)} > Preview 1</button>  
-                <button className={`${changePreview==false?"-skew-x-12 text-[var(--color6)] bg-transparent border-2 border-[var(--color1)] ":"border-transparent"} mx-5 hover:-skew-x-12 hover:text-[var(--color6)] hover:border-[var(--color1)] hover:bg-transparent transition-all duration-300 ease-in-out border-2  rounded-sm font-kanit text-white pt-1 pb-2 p-5 bg-[var(--color1)]  `} onClick={()=>setChangePre(false)}> Preview 2</button>  
+                <button className={`${changePreview===false?"-skew-x-12 text-[var(--color6)] bg-transparent border-2 border-[var(--color1)] ":"border-transparent"} mx-5 hover:-skew-x-12 hover:text-[var(--color6)] hover:border-[var(--color1)] hover:bg-transparent transition-all duration-300 ease-in-out border-2  rounded-sm font-kanit text-white pt-1 pb-2 p-5 bg-[var(--color1)]  `} onClick={()=>setChangePre(false)}> Preview 2</button>  
             </div>
             ):
             (<></>)
           }
 
-            <div className='w-full flex justify-center items-center'>
+            <div className='w-full flex mt-20 lg:mt-0 justify-center items-center'>
               
                 {
                   (service.title) ? (

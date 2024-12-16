@@ -25,8 +25,8 @@ export default function AdminPanel() {
           path="admin"
           element={
             <div className="bg-[var(--bg)]">
-              <DelService/>
-              {/* <AddService /> */}
+              {/* <DelService/> */}
+              <AddService />
             </div>
           }
         />
