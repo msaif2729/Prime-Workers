@@ -27,7 +27,7 @@ const CustomDropdown = ({onSelectOption}) => {
       setOptions(titles);
     }
     fetchTitle();
-  },[])
+  },[context.data])
 
   return (
     <div className="text-left w-full ">
@@ -54,7 +54,7 @@ const CustomDropdown = ({onSelectOption}) => {
       </button>
 
       {isOpen && (
-        <div className="absolute mt-2 w-full  font-kanit rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+        <div className="absolute mt-2 w-full z-50 font-kanit rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
           <div className="py-1 ">
             {options.map((option, index) => (
               <button

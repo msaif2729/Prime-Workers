@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { toast } from 'react-toastify';
 import dataContext from '../../Context/dataContext';
-import uploadMultipleImages from '../../Firebase/Firebase';
+import {uploadMultipleImages} from '../../Firebase/Firebase';
 import ServiceItem from '../ServiceItem';
 import Preview2 from './Preview2';
-import CustomDropdown from '../CustomDropdown';
 
 export default function AddService() {
 
@@ -13,36 +12,11 @@ export default function AddService() {
   });
 
   const context = useContext(dataContext);
-  const [selectedOption,setSelectedOption] = useState(''); 
   const [selectedImage,setSelectedImage] = useState('');
-  const [isSelectedRadio,setSelectedRadio] = useState('add');
   const [changePreview,setChangePre] = useState(true);
   const [error,setError] = useState('');
   const fileInput1 = useRef(null);
   const fileInput2 = useRef(null);
-  
-  const handleSelect = (option)=>{
-      setSelectedOption(option)
-  }
-
-  useEffect(() => {
-    if (isSelectedRadio === 'update' && selectedOption) {
-      const fetchData = async () => {
-        const data = await context.getData(selectedOption);
-        setService(data.getData);
-        setSelectedImage({ coverImage: data.getData.coverImage, icon: data.getData.icon });
-      };
-      fetchData();
-    } else {
-      setService({ title: "", tagline: "", description: "", coverImage: "", icon: "" });
-    }
-  }, [selectedOption, isSelectedRadio]);
-  
-
-  const handleSelectedRadio = (event)=>{
-      setSelectedRadio(event.target.value);
-      // alert(isSelectedRadio)
-  }
 
   const handleChange = (e)=>{
     const inputText = e.target.value;
@@ -70,12 +44,13 @@ export default function AddService() {
                 icon: uploadedImages[1],
             };
 
-            console.log("Uploaded images:", updatedService);
+            // console.log("Uploaded images:", updatedService);
 
             const response = await context.createData(updatedService);
 
             if (response) {
                 setService({ title: "", tagline: "", description: "", coverImage: "", icon: "" });
+                setSelectedImage({coverImage:"",icon:""})
                 fileInput1.current.value=""; 
                 fileInput2.current.value="";  
                 toast.success("Service Added Successfully!");
@@ -108,45 +83,25 @@ export default function AddService() {
   return (
     <div>
       <div className=' p-5 lg:p-10 bg-[var(--card)]'>
-        <div className='flex flex-col lg:flex-row justify-center items-center lg:justify-between  gap-3 '>
-            <h1 className=' font-kanit text-2xl lg:text-3xl  font-semibold text-[var(--color1)]'>Add or Update Service</h1>
-            <div className='lg:w-[50%] h-5 my-2'>
-                <form action="" >
-                  <fieldset>
-                    <label htmlFor="add" className='font-kanit  '><input checked={isSelectedRadio === "add"} type="radio" value='add' id='add' name='add-update' onChange={handleSelectedRadio}/> Want To Add</label>
-                    <label htmlFor="update" className='font-kanit mx-5'><input checked={isSelectedRadio === "update"} type="radio" id='update' value='update' name='add-update' onChange={handleSelectedRadio}/> Want To Update</label>
-                  </fieldset>
-                </form>
-            </div>
-        </div>
-
+        <h1 className=' font-kanit text-2xl lg:text-3xl  font-semibold text-[var(--color1)]'>Add Service</h1>
         <div className='flex  flex-col lg:flex-row py-5'>
           <form className="space-y-5 lg:w-[50%]" onSubmit={handleSubmit}>
 
              <div className=''>
-
                 <label htmlFor="title" className="block  text-sm font-oswald tracking-widest font-medium">
                 Title
                 </label>
-                {
-                  (isSelectedRadio==='add')?(
-                    <div>
-                      <input
-                      type="text"
-                      id="title"
-                      name='title'
-                      value={service.title}
-                      onChange={handleChange}
-                      className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-[var(--color7)] focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
-                      placeholder="Service Title"
-                      />
-                    </div>
-                  ):(
-                    <div className='lg:w-full relative '>
-                      <CustomDropdown onSelectOption={handleSelect}/>
-                    </div>
-                  )
-                }
+                <div>
+                    <input
+                    type="text"
+                    id="title"
+                    name='title'
+                    value={service.title}
+                    onChange={handleChange}
+                    className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-[var(--color7)] focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
+                    placeholder="Service Title"
+                    />
+                </div>
               </div>
 
               <div className=''>
@@ -217,11 +172,13 @@ export default function AddService() {
               </div>
 
               <div className="flex justify-start">
-                  <button
+                <button
                   type='submit'
+                  name='addbtn'
+                  id='addbtn'
                   className="hover:-skew-x-12 hover:text-[var(--color6)] transition-all duration-300 ease-in-out  hover:bg-transparent border-2 border-transparent rounded-sm font-kanit text-white pt-1 pb-2 p-5  hover:border-[var(--color1)] bg-[var(--color1)]"
                   >
-                  Send Message
+                  Add Service
                   </button>
               </div>
           </form>

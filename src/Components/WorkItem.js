@@ -8,17 +8,15 @@ import int from '../Assets/images/int.jpg';
 
 
 export default function WorkItem(props) {
-  const { title, tagline, description, icon } = props;
+  const { title, tagline, description,images, icon } = props;
 
-  const images = [
-    ac,iron,steel,int,ac,iron,steel,int,ac,iron,steel,int,ac,iron,steel,int
-  ];
+  // const images = [
+  //   ac,iron,steel,int,ac,iron,steel,int,ac,iron,steel,int,ac,iron,steel,int
+  // ];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({});
   const [istouched,setTouched] = useState(false); 
-
-  
 
   const handleClick = () => {
     setModalContent({

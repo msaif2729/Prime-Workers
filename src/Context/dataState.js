@@ -13,7 +13,7 @@ const DataState = (props)=>{
             
             const {title,tagline,description,coverImage,icon} = dataitems;
 
-            console.log(dataitems)
+            // console.log(dataitems)
 
              // Check if all required fields are provided
              if (!title || !tagline || !description || !coverImage || !icon) {
@@ -152,7 +152,8 @@ const DataState = (props)=>{
 
         try {
             
-            const {title} = dataitems;
+            const title = dataitems;
+            console.log(dataitems);
 
             if(!title)
             {
@@ -174,7 +175,8 @@ const DataState = (props)=>{
             }
 
             const json = await response.json();
-            console.log(json);
+            return json;
+            // console.log(json);
         } catch (error) {
             console.log("Failed to Create Category",error);
         }
@@ -187,6 +189,9 @@ const DataState = (props)=>{
         try {
             
             const {title,images} = dataitems;
+            // console.log(dataitems);
+            // console.log("Title:"+title+"\nImages : "+images);
+            
 
             if(!title || images.length === 0 )
             {
@@ -208,7 +213,7 @@ const DataState = (props)=>{
             }
 
             const json = await response.json();
-            console.log(json);
+            setData((prev)=>[...prev,json]);
 
         } catch (error) {
             console.log("Failed to Create Category",error);
@@ -221,13 +226,14 @@ const DataState = (props)=>{
         try {
             
             const {title,image} = dataitems;
+            // console.log(dataitems)
 
             if(!title || !image)
             {
                 throw new Error("All fields are required.");
             }
 
-            const response = await fetch(`${host}/api/data/deleteData`,{
+            const response = await fetch(`${host}/api/data/deleteImage`,{
                 method:'DELETE',
                 headers:{
                     'Content-Type':'application/json'
@@ -242,14 +248,43 @@ const DataState = (props)=>{
             }
 
             const json = await response.json();
-            console.log(json);
+            setData((prev)=>[...prev,json]);
+            return json;
         } catch (error) {
             console.log("Failed to Create Category",error);
         }
     }
 
+
+    const sendEmail = async (data)=>{
+
+        try {
+            
+            const response = await fetch(`${host}/api/sendemail/send-email`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if(!response)
+            {
+                const error = await response.text();
+                throw new Error(`HTTP ERROR! status:${response.status} ,message:${error}`)
+            }
+
+            const json = await response.json()
+            return json;
+
+        } catch (error) {
+            console.log("Emial sending error"+error)
+        }
+
+    }
+
     return(
-        <DataContext.Provider value={{data,createData,getAllTitle,getData,getAllData,updateData,deleteData,deleteImage,insertImage}}>
+        <DataContext.Provider value={{data,createData,getAllTitle,getData,getAllData,updateData,deleteData,deleteImage,insertImage,sendEmail}}>
             {props.children}
         </DataContext.Provider>
     );

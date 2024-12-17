@@ -39,7 +39,11 @@ module.exports = {
           text: '#ffffff', // card Text color
           primary: '#ffffff', // Primary color
         },
-      }
+      },
+      boxShadow: {
+        'dark-bottom-right': '11px 11px 15px rgba(169, 169, 169, 169)'
+      },
+
 
     },
   },

@@ -27,13 +27,15 @@ export default function Modal({ isOpen, onClose, content }) {
             {/* <img src={content.images[1]} alt="" /> */}
 
           {content.images && content.images.length > 0 ? (
-            <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4 ">
+            <div className="w-full grid grid-cols-1 lg:grid-cols-4 gap-4 ">
               {content.images.map((image, index) => (
                 <div
                   key={index}
-                  className="h-[30vh] bg-center bg-cover rounded-lg shadow"
-                  style={{ backgroundImage: `url(${image})` }}
-                ></div>
+                  className=" bg-center bg-cover rounded-lg shadow overflow-hidden"
+                  // style={{ backgroundImage: `url(${image})` }}
+                >
+                  <img src={image} alt={`Uploaded`} className="w-[50vh] h-[40vh] "  />
+                </div>
               ))}
             </div>
           ) : (

@@ -3,6 +3,8 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import Login from './Login';
 import AddService from './AddService';
 import DelService from './DelService';
+import AddImages from './AddImages';
+import DelImages from './DelImages';
 
 export default function AdminPanel() {
 
@@ -24,9 +26,11 @@ export default function AdminPanel() {
         <Route
           path="admin"
           element={
-            <div className="bg-[var(--bg)]">
-              {/* <DelService/> */}
+            <div className="bg-[var(--card)] pb-32  ">
               <AddService />
+              <DelService/>
+              <AddImages/>
+              <DelImages/>
             </div>
           }
         />

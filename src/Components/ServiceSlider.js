@@ -1,48 +1,38 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import ServiceItem from './ServiceItem';
 // import ac from '../Assets/images/acservice.png';
 // import iron from '../Assets/images/ironservice.png';
 // import steel from '../Assets/images/steelservice.png';
 // import int from '../Assets/images/intservice.png';
+// import ac from '../Assets/images/icons/acservice.png';
+// import iron from '../Assets/images/icons/ironservice.png';
+// import steel from '../Assets/images/icons/steelservice.png';
+// import int from '../Assets/images/icons/intservice.png';
+import dataContext from '../Context/dataContext';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import ac from '../Assets/images/icons/acservice.png';
-import iron from '../Assets/images/icons/ironservice.png';
-import steel from '../Assets/images/icons/steelservice.png';
-import int from '../Assets/images/icons/intservice.png';
 
 export default function ItemSlider() {
 
-  const [services, setService] = useState([
-    {
-      title: "AC Service",
-      tagline: "Our Service is a Breath of Fresh Air.",
-      description:
-        "Breathe easy and stay cool with our AC services – ensuring optimal comfort and efficiency for your home or business, no matter the season.",
-      icon: ac
-    },
-    {
-      title: "Iron Work",
-      tagline: "Strength forged in every design",
-      description:
-        "Forging strength and durability, shaping iron with precision and expertise. Our iron works deliver timeless solutions that stand strong through the years, creating sturdy, enduring solutions that stand the test of time.",
-      icon: iron
-    },
-    {
-      title: "Interior Design",
-      tagline: "Designing spaces, crafting dreams.",
-      description:
-        "Interior design is not just about creating a space that looks beautiful; it’s about creating a space that feels like you. Our home should tell the story of who you are, and be a collection of what you love.",
-      icon: int
-    },
-    {
-      title: "Steel Works",
-      tagline: "Turning ideas into solid, lasting structures.",
-      description:
-        "Crafting excellence in steel – where innovation meets strength to build lasting solutions for every project. Our steel works transform ideas into solid, reliable structures that last.",
-      icon: steel
+  const [services, setServices] = useState([]);
+  const context = useContext(dataContext);
+
+  useEffect(()=>{
+    const fetchAllData = async ()=>{
+      const data = await context.getAllData();
+      if(data)
+      {
+        setServices(data);
+      }  
     }
-  ]);
+    fetchAllData();
+   console.log()
+ }, []);
+
+
+
 
   const settings = {
     infinite: true,
@@ -77,7 +67,7 @@ export default function ItemSlider() {
   return (
     <div className="max-w-[375px] md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl   px-4 py-5 m-5  ">
       <div className=" px-5 mx-auto ">
-        {services.length > 0 ? (
+        {services?.length > 0? (
           <Slider {...settings} className='w-full'>
             {services.map((service, index) => (
               <div key={index} className="px-2 py-5">

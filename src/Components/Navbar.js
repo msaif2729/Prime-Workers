@@ -19,7 +19,7 @@ export default function Navbar() {
   } 
 
   return (
-    <nav className="fixed top-0 w-full z-50 h-0 bg-black">
+    <nav className="fixed top-0 w-full z-50 h-0 ">
       <div
         className={`flex justify-between transition-all duration-300 items-center px-5 lg:px-10 fixed w-[100%] py-1 ${
           scroll
@@ -30,7 +30,7 @@ export default function Navbar() {
         `}
       >
         <div className="">
-          <a href="">
+          <a href="#home">
             <img src={logo} alt="" className='w-28  '/>
           </a>
         </div>
@@ -70,8 +70,8 @@ export default function Navbar() {
         }`}
       >
         <div className='flex justify-between mb-4'>
-          <div className="text-[var(--color1)] mx-3 transition-all duration-700  font-kanit text-3xl font-semibold">
-            <a href="">
+          <div className=" mx-3 transition-all duration-700  font-kanit text-3xl font-semibold">
+            <a href="#home">
               <img src={logo} alt="" className='w-28 '/>
             </a>
           </div>

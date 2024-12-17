@@ -1,5 +1,6 @@
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "./FirebaseConfig"
+import { getStorage, deleteObject } from "firebase/storage";
 
 async function uploadMultipleImages(files) {
   if (!Array.isArray(files) || files.length === 0) {
@@ -33,7 +34,26 @@ async function uploadMultipleImages(files) {
   return successfulUploads;
 }
 
-export default uploadMultipleImages;
+const deleteImage = async (imageURL)=>{
+
+  
+  const imagestorage  = getStorage();
+
+  imageURL.map((image,index)=>{
+  
+  const decodedPAth = decodeURIComponent(image.split('/o/')[1].split('?')[0]);
+  const imageRef = ref(storage,decodedPAth);
+  // console.log(imageRef);
+  deleteObject(imageRef)
+  .then(()=>{
+    console.log("Image Deleted Successfully");
+  })
+  .catch((error)=>{
+    console.log(error.message);
+  })
+  })
+}
+export {uploadMultipleImages,deleteImage};
 
 
 // const handleImageUpload = async (event) => {

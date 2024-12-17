@@ -1,5 +1,5 @@
 import React from 'react'
-import owner from '../Assets/images/owner.png'
+import owner from '../Assets/images/owner2.png'
 import ScrollScale from '../Animation/ScrollScale'
 
 export default function About() {
@@ -34,7 +34,7 @@ export default function About() {
         <ScrollScale>
           <div className='right flex xl:relative flex-col '>
               <h1 className=' block xl:hidden  text-[var(--color4)] my-10 font-oswald font-semibold mt-10 text-3xl'>About Us</h1>
-              <img src={owner} alt="" className='w-[70vh]  lg:w-[40vh] self-center xl:w-[70vh] '/>
+              <img src={owner} alt="" className='w-[40vh]  lg:w-[40vh] self-center xl:w-[60vh] '/>
               <h1 className='bg-[var(--card)] rounded-t-lg text-center lg:text-start text-[var(--color7)] fonr-kanit p-5 text-[15px] font-normal lg:mx-10 xl:w-[60%] xl:absolute xl:-right-10 xl:bottom-0'>I <span className='text-[var(--color2)] font-bold'>Mr. Idrees Siddiqui</span> the founder & managing director of this esteemed company. At Prime Workers we offer a large variety of services & try to meet the expectations of our clients by giving the best of us</h1>
           </div>
         </ScrollScale>

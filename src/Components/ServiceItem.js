@@ -5,8 +5,8 @@ export default function ServiceItem(props) {
     const {title,tagline,description,icon} = props;
 
   return (
-    <div>
-       <div className="bg-[var(--bg)] p-4  text-[var(--text)] md:h-[45vh] lg:h-[55vh] h-auto flex shadow-xl hover:scale-105  rounded-md transition-all duration-300  ">
+    <div className='hover:shadow-2xl'>
+       <div className="bg-[var(--bg)] p-4  text-[var(--text)] md:h-[45vh] lg:h-[55vh] h-auto flex  hover:scale-105  rounded-md transition-all duration-300  ">
             <div className="flex flex-col justify-evenly  ">
                 <div className='flex flex-col justify-center items-center space-y-4'>
                     <img src={icon} className='w-16' alt="" />
