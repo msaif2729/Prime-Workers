@@ -19,7 +19,7 @@ export default function Navbar() {
   } 
 
   return (
-    <nav className="fixed top-0 w-full z-50 h-0 ">
+    <nav className="fixed top-0 w-full z-40 h-0 ">
       <div
         className={`flex justify-between transition-all duration-300 items-center px-5 lg:px-10 fixed w-[100%] py-1 ${
           scroll

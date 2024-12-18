@@ -13,12 +13,13 @@ import DataState from './Context/dataState';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Preloader from './Components/Preloader';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App scroll-smooth">
-        <div className="theme-light bg-[var(--bg)] overflow-hidden scroll-smooth">
+        <div className="theme-light relative bg-[var(--bg)] overflow-hidden scroll-smooth">
           <ToastContainer
             position="bottom-right"
             autoClose={5000} // Auto close after 5 seconds
@@ -38,6 +39,7 @@ function App() {
                 path="/"
                 element={
                   <>
+                    <Preloader/>
                     <Navbar />
                     <Home />
                     <Service />
@@ -45,6 +47,7 @@ function App() {
                     <Work />
                     <Contact />
                     <Footer />
+                    
                   </>
                 }
               />
