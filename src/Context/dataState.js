@@ -3,7 +3,7 @@ import DataContext from './dataContext';
 
 const DataState = (props)=>{
 
-    const host = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+    const host = "https://prime-workers.vercel.app/";
 
     const [data,setData] = useState([]);
 
