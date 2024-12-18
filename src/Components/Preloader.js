@@ -38,12 +38,14 @@ export default function Preloader() {
 
     }, []); 
 
+    //absolute bottom-20 lg:bottom-0 
+
     return (
-        <div className={`${percentage===100?'-translate-y-[100vh] opacity-0':''} fixed inset-0 h-[100vh] bg-[var(--color1)] z-50 transition-all duration-700`} >
-            <div className="absolute bottom-20 lg:bottom-0 p-3">
-                <h1 className="text-4xl lg:text-5xl font-kanit font-bold text-[var(--color2)]">{percentage}%</h1>
-                <h1 className="text-5xl lg:text-9xl font-kanit font-extrabold text-white">
-                    PRIME WORKERS{dots}
+        <div className={`${percentage===100?'-translate-y-[100vh] opacity-0':''} flex justify-center items-center fixed inset-0 h-[100vh] bg-[var(--color1)] z-50 transition-all duration-700`} >
+            <div className=" flex-col p-3">
+                <h1 className="text-center lg:text-start text-4xl lg:text-5xl font-kanit font-bold text-[var(--color2)]">{percentage}%</h1>
+                <h1 className="text-center text-5xl lg:text-9xl font-kanit font-extrabold text-white">
+                    PRIME WORKERS
                 </h1>
             </div>
         </div>
