@@ -3,7 +3,7 @@ import DataContext from './dataContext';
 
 const DataState = (props)=>{
 
-    const host = "https://prime-workers-backend.vercel.app/";
+    const host = "https://prime-workers-backend.vercel.app";
 
     const [data,setData] = useState([]);
 
