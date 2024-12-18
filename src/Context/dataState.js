@@ -73,7 +73,7 @@ const DataState = (props)=>{
             return data; 
 
         } catch (error) {
-            console.log("Failed to Load Category",error);
+            console.log("Failed to Load Category",error.message);
         }
 
     }
