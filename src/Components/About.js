@@ -1,5 +1,5 @@
 import React from 'react'
-import owner from '../Assets/images/owner2.png'
+import owner from '../Assets/images/owner1.png'
 import ScrollScale from '../Animation/ScrollScale'
 
 export default function About() {
