@@ -144,7 +144,7 @@ const DataState = (props)=>{
             return json;
 
         } catch (error) {
-            console.log("Failed to Create Category",error);
+            console.log("Failed to Create Category",error.message);
         }
     }
 
