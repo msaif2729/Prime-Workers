@@ -153,7 +153,7 @@ export default function AddService() {
 
               <div>
                   <label htmlFor="description" className="block mb-2 text-sm font-oswald tracking-widest font-medium">
-                  Message
+                  Description
                   </label>
                   <textarea
                   id="description"

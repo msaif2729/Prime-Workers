@@ -45,7 +45,7 @@ export default function Preloader() {
             <div className=" flex-col p-3">
                 <h1 className="text-center lg:text-start text-4xl lg:text-5xl font-kanit font-bold text-[var(--color2)]">{percentage}%</h1>
                 <h1 className="text-center text-5xl lg:text-9xl font-kanit font-extrabold text-white">
-                    PRIME WORKERS
+                    PRIME WORKERS.
                 </h1>
             </div>
         </div>
