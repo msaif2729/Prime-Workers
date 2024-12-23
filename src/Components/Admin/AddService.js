@@ -18,52 +18,63 @@ export default function AddService() {
   const fileInput1 = useRef(null);
   const fileInput2 = useRef(null);
 
-  const handleChange = (e)=>{
+  const handleChange = (e) => {
     const inputText = e.target.value;
-
-    if (inputText.length <= 200) {
-      setService({...service,[e.target.name]:e.target.value})
-      setError("");
-    } else {
-      setError("Input must be less than 200 characters.");
+  
+    if (e.target.name === 'description') {
+      if (inputText.length > 200) {
+        setError("Description must be less than or equal to 200 characters.");
+      } else if (inputText.length < 100 && inputText.length > 0) {
+        setError("Description must be at least 100 characters.");
+      } else {
+        setError("");
+      }
     }
-  }
+  
+    setService({ ...service, [e.target.name]: inputText });
+  };
+  
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (service.title && service.tagline && service.description && service.coverImage && service.icon) {
-      try {
-        
-        toast.info("Uploading images...");
-        const uploadedImages = await uploadMultipleImages([service.coverImage, service.icon]);
+    if(error.length===0)
+    {
 
-        if (uploadedImages && uploadedImages.length === 2) {
-            const updatedService = {
-                ...service,
-                coverImage: uploadedImages[0],
-                icon: uploadedImages[1],
-            };
-
-            // console.log("Uploaded images:", updatedService);
-
-            const response = await context.createData(updatedService);
-
-            if (response) {
-                setService({ title: "", tagline: "", description: "", coverImage: "", icon: "" });
-                setSelectedImage({coverImage:"",icon:""})
-                fileInput1.current.value=""; 
-                fileInput2.current.value="";  
-                toast.success("Service Added Successfully!");
-            }
-        } else {
-            toast.error("Image upload failed. Please try again.");
+      if (service.title && service.tagline && service.description && service.coverImage && service.icon) {
+        try {
+          
+          toast.info("Uploading images...");
+          const uploadedImages = await uploadMultipleImages([service.coverImage, service.icon]);
+  
+          if (uploadedImages && uploadedImages.length === 2) {
+              const updatedService = {
+                  ...service,
+                  coverImage: uploadedImages[0],
+                  icon: uploadedImages[1],
+              };
+  
+              // console.log("Uploaded images:", updatedService);
+  
+              const response = await context.createData(updatedService);
+  
+              if (response) {
+                  setService({ title: "", tagline: "", description: "", coverImage: "", icon: "" });
+                  setSelectedImage({coverImage:"",icon:""})
+                  fileInput1.current.value=""; 
+                  fileInput2.current.value="";  
+                  toast.success("Service Added Successfully!");
+              }
+          } else {
+              toast.error("Image upload failed. Please try again.");
+          }
+        } catch (error) {
+          console.error("Error uploading images:", error);
+          toast.error("An error occurred while uploading images.");
         }
-      } catch (error) {
-        console.error("Error uploading images:", error);
-        toast.error("An error occurred while uploading images.");
+      } else {
+        toast.error("All fields are required!");
       }
-    } else {
-      toast.error("All fields are required!");
     }
   };
   
