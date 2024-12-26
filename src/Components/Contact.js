@@ -194,7 +194,7 @@
                                                 type="text"
                                                 id="name"
                                                 name="name"
-                                                className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 lg:border-b-2 border-[var(--color1)] text-[var(--color7)] focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
+                                                className="w-full bg-transparent text-lg lg:text-xl border-b-[1px] lg:border-b-2 border-[var(--color1)] text-[var(--color7)] focus:outline-none focus:ring-0 placeholder-neutral-700 font-kanit"
                                                 placeholder="Your Name"
                                                 value={formData.name}
                                                 onChange={handleInputChange}
