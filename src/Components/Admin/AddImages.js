@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import CustomDropdown from '../CustomDropdown'
 import dataContext from '../../Context/dataContext';
 import { uploadMultipleImages } from '../../Firebase/Firebase';

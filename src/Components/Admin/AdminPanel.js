@@ -14,7 +14,6 @@ export default function AdminPanel() {
     if(localStorage.getItem('islogin') !== 'true')
     {
       navigate("/prime-workers-admin/admin-panel/admin-login")
-      console.log(navigate)
     }
   },[navigate])
 

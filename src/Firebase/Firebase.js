@@ -46,7 +46,7 @@ const deleteImage = async (imageURL)=>{
   // console.log(imageRef);
   deleteObject(imageRef)
   .then(()=>{
-    console.log("Image Deleted Successfully");
+    // console.log("Image Deleted Successfully");
   })
   .catch((error)=>{
     console.log(error.message);

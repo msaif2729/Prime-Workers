@@ -1,4 +1,4 @@
-    import React, { useContext, useEffect, useState } from 'react'
+    import React, { useContext, useState } from 'react'
     import ScrollTransLeft from '../Animation/ScrollTransLeft'
     import ScrollTransRight from '../Animation/ScrollTransRight'
     import CustomDropdown from './CustomDropdown'

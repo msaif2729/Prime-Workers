@@ -1,21 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react'
-import ac from '../Assets/images/ac.jpg';
-import iron from '../Assets/images/iron.jpg';
-import steel from '../Assets/images/steel.jpg';
-import int from '../Assets/images/int.jpg';
+// import ac from '../Assets/images/ac.jpg';
+// import iron from '../Assets/images/iron.jpg';
+// import steel from '../Assets/images/steel.jpg';
+// import int from '../Assets/images/int.jpg';
 // import ac1 from '../Assets/images/ac1.jpg';
 // import iron1 from '../Assets/images/iron1.jpg';
 // import steel1 from '../Assets/images/steel1.jpg';
 // import interior1 from '../Assets/images/int1.jpg';
 import WorkItem from './WorkItem';
-import useBreakPoint from '../Hooks/useBreakPoint';
 import dataContext from '../Context/dataContext';
 
 
 export default function Work() {
 
 
-  const [images, setImages] = useState([ac, steel,int,iron]);
+  // const [images, setImages] = useState([ac, steel,int,iron]);
   const [services, setServices] = useState([]);
   const context = useContext(dataContext);
   // const width = useBreakPoint();

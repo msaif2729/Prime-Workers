@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Preloader() {
     const [percentage, setPercentage] = useState(1);
-    const [dots, setDots] = useState('');
+    // const [dots, setDots] = useState('');
 
     useEffect(() => {
 
@@ -17,23 +17,23 @@ export default function Preloader() {
         }, 20);
 
         // Timer for updating dots
-        const dotsInterval = setInterval(() => {
-            setDots((prev) => {
-                if(prev === '') return '.'
-                if (prev === '.') return '..';
-                if (prev === '..') return '...';
-                return '';
-            });
-        }, 250);
+        // const dotsInterval = setInterval(() => {
+        //     setDots((prev) => {
+        //         if(prev === '') return '.'
+        //         if (prev === '.') return '..';
+        //         if (prev === '..') return '...';
+        //         return '';
+        //     });
+        // }, 250);
         
         if (percentage >= 100) {
             clearInterval(percentageInterval);
-            clearInterval(dotsInterval);
+            // clearInterval(dotsInterval);
         }
 
         return () => {
             clearInterval(percentageInterval);
-            clearInterval(dotsInterval);
+            // clearInterval(dotsInterval);
         };
 
     }, []); 

@@ -11,7 +11,7 @@ import Footer from './Components/Footer';
 import AdminPanel from './Components/Admin/AdminPanel';
 import DataState from './Context/dataState';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Preloader from './Components/Preloader';
 

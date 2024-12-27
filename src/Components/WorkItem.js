@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import ScrollTransLeft from '../Animation/ScrollTransLeft';
 import Modal from './Modal';
-import ac from '../Assets/images/ac.jpg';
-import iron from '../Assets/images/iron.jpg';
-import steel from '../Assets/images/steel.jpg';
-import int from '../Assets/images/int.jpg';
+// import ac from '../Assets/images/ac.jpg';
+// import iron from '../Assets/images/iron.jpg';
+// import steel from '../Assets/images/steel.jpg';
+// import int from '../Assets/images/int.jpg';
 
 
 export default function WorkItem(props) {

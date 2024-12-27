@@ -21,7 +21,7 @@ export default function DelImages() {
     const fetchData = async () => {
       if (selectedOption) {
         const data = await context.getData(selectedOption);
-        console.log(data.getData.images); 
+        // console.log(data.getData.images); 
         setImages(data.getData.images || []); 
       } else {
         setImages([]); 

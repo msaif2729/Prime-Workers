@@ -155,7 +155,7 @@ const DataState = (props)=>{
         try {
             
             const title = dataitems;
-            console.log(dataitems);
+            // console.log(dataitems);
 
             if(!title)
             {
