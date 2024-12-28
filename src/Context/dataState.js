@@ -5,8 +5,6 @@ const DataState = (props)=>{
 
     const host = "https://prime-workers-backend.vercel.app";
 
-    // const host = "http://localhost:5000"
-
     const [data,setData] = useState([]);
 
     const createData = async (dataitems)=>{
